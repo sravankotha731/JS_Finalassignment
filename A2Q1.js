@@ -21,18 +21,17 @@ class getInfo extends resourceCaller {
                 return data.json()
             }).then((resdata) => {
                 console.log(resdata)
-                let table =
-                    `<tr>
-                            <th>ID</th>
-                            <th>email</th>
-                            <th>Name</th>
-                        </tr>`
+                let table =`<tr>
+                                <th>ID</th>
+                                <th>email</th>
+                                <th>Name</th>
+                            </tr>`
                 for (let r of resdata.data) {
                     table += `<tr>
-                    <td>${r.id} </td>
-                    <td>${r.email}</td>
-                    <td>${r.first_name + " " + r.last_name}</td>        
-                </tr>`;
+                                <td>${r.id} </td>
+                                <td>${r.email}</td>
+                                <td>${r.first_name + " " + r.last_name}</td>        
+                             </tr>`;
                 }
                 document.getElementById("Details1").innerHTML = table;
             }).catch(err => console.log(err))
